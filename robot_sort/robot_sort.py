@@ -117,24 +117,46 @@ class SortingRobot:
             # memory so I'm going to try selection sort
         # when an item is picked up it will leave 'none' at that postiton in the list
 
-        # While true - set the light as ON to begin sort loop
-        while self.light_is_on() == True:
+        # set the robots light to ON
+        self.set_light_on()
 
+        # While true - set the light as ON to begin sort loop
+        while self.light_is_on():
+            self.set_light_off()
             # start at 1st position of the list, use the self.swap_item() to pickup
+            self.swap_item()
+            print(self.swap_item())
             # move to the right to find smallest item in the list
-                # compare the item being held to the item in the list, if it is greater than the item in the list,
+            while self.can_move_right():
+                self.move_right()
+                # compare the item being held to the item in the list, if it is greater than the item in the list
+                if self.compare_item() == 1:
                     # then swap_item() for the smaller item, repeat until moved all the way to the end of the right side of the list
+                    self.swap_item()
+                    self.set_light_on()
                 # if get to the end of the right of the list without finding a smaller item, then put the picked up item back in it's position (swap with 'none') by moving left
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
                 # move right again, set the 2nd position as the new 'pivot' picking up the second item and leaving 'none' in 2nd position
+                if self.compare_item() == -1:
                     # repeat the same process moving right until finding the next smallest item in the list
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_right()
+                self.swap_item()
+                self.move_left()
 
         # Else: to end the loop set the light as OFF
+        else:
+            self.set_light_off()
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
 
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
+    # l = [15, 41, 58, 49, 26]
 
     robot = SortingRobot(l)
 
