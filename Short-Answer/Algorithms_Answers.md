@@ -14,3 +14,21 @@ c) O(n)
 ## Exercise II
 
 
+n-story buildings and plenty of eggs
+An egg gets broken if its thrown off floor gerater or equal to f (ie: broken)
+The egg does not break if its thrown off a floor less than f (ie: not_broken)
+Determin the value of f, such that the num of dropped + broken eggs is minimized
+
+1. Find the middle floor by spliting the length of the amount of stories in the building
+2. Drop an egg
+    a. if it breaks, go down one floor, drop another egg
+            if the egg does not break, subtract the dropped eggs(plus one) from the middle 
+                floor, this will return floor f
+            else if the egg does break, repeat step a
+    b. else if it does not break, go up one floor, drop another egg
+            if the egg breaks add number of dropped eggs to the middle floor, this will 
+                retrun floor f
+            else if the egg does not break, repeat step b
+
+I think this solution would be O(n) becasue n would be constant and I dont think there 
+    would be a nested loop
