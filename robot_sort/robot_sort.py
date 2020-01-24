@@ -97,8 +97,38 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
 
+    # Rules:
+        # You may use any pre-defined robot methods.
+        # You may NOT modify any pre-defined robot methods.
+        # You may use logical operators. (if, and, or, not, etc.)
+        # You may use comparison operators. (>, >=, <, <=, ==, is, etc.)
+        # You may use iterators. (while, for, break, continue)
+        # You may NOT store any variables. (=)
+        # You may NOT access any instance variables directly. (self._anything)
+        # You may NOT use any Python libraries or class methods. (sorted(), etc.)
+        # You may define robot helper methods, as long as they follow all the rules.
+    # Notes:
+        # Robots functions are moving left/right, swap items, turning it's light on/off
+        # Tests should run in far less than 1 second.
+        # The robot has exactly one bit of memory: its light. I think this can be used to indicate
+            # when the robot has started and ended sorting.
+        # At first I thought bubble sort bc only movement is left/right but the robot is limited on
+            # memory so I'm going to try selection sort
+        # when an item is picked up it will leave 'none' at that postiton in the list
+
+        # While true - set the light as ON to begin sort loop
+        while self.light_is_on() == True:
+
+            # start at 1st position of the list, use the self.swap_item() to pickup
+            # move to the right to find smallest item in the list
+                # compare the item being held to the item in the list, if it is greater than the item in the list,
+                    # then swap_item() for the smaller item, repeat until moved all the way to the end of the right side of the list
+                # if get to the end of the right of the list without finding a smaller item, then put the picked up item back in it's position (swap with 'none') by moving left
+                # move right again, set the 2nd position as the new 'pivot' picking up the second item and leaving 'none' in 2nd position
+                    # repeat the same process moving right until finding the next smallest item in the list
+
+        # Else: to end the loop set the light as OFF
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
