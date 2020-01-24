@@ -7,6 +7,8 @@ a) O(n)
 
 b) O(n^2)
     n is not constant and there is a nested while loop within a for loop
+    ** correct answer is O(n log n)
+        as the size of the input increases, the runtime used grows at a slightly faster rate
 
 c) O(n)
     n, or 'bunnies', is constant and there is no loop
